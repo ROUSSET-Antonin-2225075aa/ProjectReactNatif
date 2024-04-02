@@ -1,0 +1,39 @@
+{
+    "question":
+    [{
+        "questionId": 1,
+        "questionSecu": "Pourquoi doit-on régler la hauteur des feux ?",
+        "answersSecu": "Pour ne pas éblouir les autres usagers",
+        "questionSecours": "Comment et pourquoi protéger une zone de danger en cas d'accident de la route ?",
+        "answersSecours": "En délimitant clairement et largement la zone de danger de façon visible pour protéger les victimes et éviter un sur-accident"
+    },
+    {
+        "questionId": 2,
+        "questionSecu": "Pourquoi est-il préférable d’utiliser un liquide lave-glace spécial en hiver ?",
+        "answersSecu": "Pour éviter le gel du liquide lave-glace",
+        "questionSecours": "Quels comportements adopter en cas de diffusion du signal d’alerte du Système d’Alerte et d’Information des Populations (SAIP) ?",
+        "answersSecours": "Se mettre en sécurité. S’informer grâce aux médias et sites internet des autorités dès que leur consultation est possible. Respecter les consignes des autorités"
+    },
+    {
+        "questionId": 3,
+        "questionSecu": "Quel est l’intérêt de la position nuit du rétroviseur ?",
+        "answersSecu": "Ne pas être ébloui par les feux du véhicule suiveur",
+        "questionSecours": "Comment est composé le signal d’alerte du Système d’Alerte et d’Information des Populations (SAIP) diffusé par les sirènes ?",
+        "answersSecours": "Il se compose de deux codes distincts : le Signal National d’Alerte (SNA), variation du signal sur trois cycles successifs et le signal de fin d’alerte, signal continu"
+    },
+    {
+        "questionId": 4,
+        "questionSecu": "Citez un endroit où l’on peut trouver les pressions préconisées pour les pneumatiques ?",
+        "answersSecu": "Elles sont indiquées, soit sur une plaque sur une portière, soit dans la notice d’utilisation du véhicule, soit au niveau de la trappe à carburant",
+        "questionSecours": "Sur autoroute, comment indiquer avec précision les lieux de l’accident depuis un téléphone portable ?",
+        "answersSecours": "En indiquant le numéro de l’autoroute, le sens de circulation et le point kilométrique"
+    },
+    {
+        "questionId": 5,
+        "questionSecu": "Comment détecter l’usure des essuie-glaces en circulation ?",
+        "answersSecu": "En cas de pluie, lorsqu’ils laissent des traces sur le pare-brise",
+        "questionSecours": "Comment vérifier la respiration d’une victime ?",
+        "answersSecours": "Regarder si le ventre et la poitrine se soulèvent et sentir de l’air à l’expiration"
+    }]
+}
+  
