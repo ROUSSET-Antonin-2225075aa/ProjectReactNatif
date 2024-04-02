@@ -1,31 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import Question from './Question';
+import Home from './Home';
 
-export default function App() {
+export default function App (){
   return (
     <View style={styles.container}>
-        <Text>Open up App.js to start working on your App!</Text>
-        <StatusBar style="auto" />
-        <View style={styles.question}>
-            <Text>Question sécurité routiere :</Text>
-            <Text>Quelle est la couleur du feu qui signifie "arrêt" ?</Text>
-            <View style={styles.response_hide}> // chaner la class entre reponse-hide et reponse-show
-                <Text>Rouge</Text>
-                <Text>Vert</Text>
-                <Text>Orange</Text>
-            </View>
-            <Button>Afficher la réponse</Button>
-        </View>
-        <View style={styles.question}>
-            <Text>Question 1ers secours:</Text>
-            <Text>Quelle est la couleur du feu qui signifie "arrêt" ?</Text>
-            <View style={styles.response_hide}> // chaner la class entre reponse-hide et reponse-show
-                <Text>Rouge</Text>
-                <Text>Vert</Text>
-                <Text>Orange</Text>
-            </View>
-            <Button>Afficher la réponse</Button>
-        </View>
+        <Question title={"Secu"}/>
+        <Question title={"Secours"}/>
     </View>
   );
 }
@@ -36,5 +18,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  hide: {
+    display: 'none',
   },
 });
