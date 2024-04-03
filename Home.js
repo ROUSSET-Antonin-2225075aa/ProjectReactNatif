@@ -1,12 +1,14 @@
 import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import styles from 'style.css'
+import background from './pageAcc.png'
 
 function Home() {
     return (
-        <View style={styles.question}>
+        <View style={{ backgroundImage: `url(${background})` }}>
             <Text>Need for Licence</Text>
             <Text>Hourlay's Quiz</Text>
             <Image/>
-            <Text>Touchez pour commencer</Text>
+            <Text className={styles.blinkAnimation}>Touchez pour commencer</Text>
         </View>
     );
 }

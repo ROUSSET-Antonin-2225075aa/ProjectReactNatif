@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import style from './style.css';
+import boutonImage from 'bouton.png'
 
 export default function Question({questionSecu, answersSecu, questionSecours, answersSecours}) {
     return (
@@ -19,7 +20,7 @@ export default function Question({questionSecu, answersSecu, questionSecours, an
                 <Text id="placeholder">Réponse</Text>
                 <Text id="correction">Réponse : {answersSecours}</Text>
             </View>
-            <Button title="Affiche la question"/>
+            <Button style={{ backgroundImage: `url(${boutonImage})` }}/>
         </View>
     );
 }
