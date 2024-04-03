@@ -2,14 +2,22 @@ import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import style from './style.css';
 
-export default function Question({title}) {
+export default function Question({questionSecu, answersSecu, questionSecours, answersSecours}) {
     return (
         <View style={styles.question}>
-            <Text>Question {title} :</Text>
-            <Text>Quelle est la couleur du feu qui signifie "arrêt" ?</Text>
+            <Text>Question sécurité :</Text>
+            <Text>{questionSecu}</Text>
             <View style={styles.response_hide}> 
                 <Text id="placeholder">Réponse</Text>
-                <Text id="correction">Réponse : ROUGE</Text>
+                <Text id="correction">Réponse : {answersSecu}</Text>
+            </View>
+            <Button title="Affiche la question"/>
+
+            <Text>Question premier secours :</Text>
+            <Text>{questionSecours}</Text>
+            <View style={styles.response_hide}> 
+                <Text id="placeholder">Réponse</Text>
+                <Text id="correction">Réponse : {answersSecours}</Text>
             </View>
             <Button title="Affiche la question"/>
         </View>
