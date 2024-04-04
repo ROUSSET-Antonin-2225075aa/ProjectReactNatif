@@ -1,45 +1,61 @@
-import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import style from './style.css';
-import boutonImage from 'bouton.png'
+import React, {useState, useContext} from 'react';
+import { StyleSheet, Text, View, Button, Image, TouchableOpacity } from 'react-native';
+import boutonImage from './assets/bouton.png';
+import logo from './assets/logo.png';
+import { VisibilityContext } from './Context';
 
-export default function Question({questionSecu, answersSecu, questionSecours, answersSecours}) {
+export default function Question({questionSecu, answersSecu, questionSecours, answersSecours, elementVisibleSecu, elementVisibleSecours}) {
+    const { setElementVisibleSecu, setElementVisibleSecours } = useContext(VisibilityContext);
+
+    function showAnswerSecu(){
+        setElementVisibleSecu(prevState => !prevState);
+      }
+    
+      function showAnswerSecours(){
+        setElementVisibleSecours(prevState => !prevState);
+      }
+
     return (
-        <View style={styles.question}>
-            <Text>Question sécurité :</Text>
-            <Text>{questionSecu}</Text>
-            <View style={styles.response_hide}> 
-                <Text id="placeholder">Réponse</Text>
-                <Text id="correction">Réponse : {answersSecu}</Text>
+        <View>
+            <Image source={logo} style={styles.logo}/>
+            <View style={styles.question}>
+                <Text style={{fontSize:30}}>Question sécurité :</Text>
+                <Text style={styles.text}>{questionSecu}</Text>
+                <TouchableOpacity onPress={showAnswerSecu}>
+                    <Image source={boutonImage} style={{ width: 250, height: 50 }} />
+                </TouchableOpacity>
+                {elementVisibleSecu ? (
+                    <Text  style={styles.text}>Réponse : {answersSecu}</Text>
+                ) : null
+                }
+                <Text style={{fontSize:30}}>Question premier secours :</Text>
+                <Text style={styles.text}>{questionSecours}</Text>
+                <TouchableOpacity onPress={showAnswerSecours}>
+                    <Image source={boutonImage} style={{ width: 250, height: 50 }} />
+                </TouchableOpacity>
+                {elementVisibleSecours ? (
+                    <Text  style={styles.text}>Réponse : {answersSecours}</Text>
+                ) : null
+                }
             </View>
-            <Button title="Affiche la question"/>
-
-            <Text>Question premier secours :</Text>
-            <Text>{questionSecours}</Text>
-            <View style={styles.response_hide}> 
-                <Text id="placeholder">Réponse</Text>
-                <Text id="correction">Réponse : {answersSecours}</Text>
-            </View>
-            <Button style={{ backgroundImage: `url(${boutonImage})` }}/>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
     question: {
-        backgroundColor: '#fff',
+        backgroundColor: '#f6f6f6',
         alignItems: 'center',
         justifyContent: 'center',
     },
-    response_hide: {
-        backgroundColor: '#ff0000',
-        borderadius: 10,
+    text: {
+        fontSize: 20,
+        color: 'black',
     },
-    
+    logo: {
+        width: 500,
+        height: 90,
+        alignSelf: 'center',
+        marginBottom: 30,
+    },
   });

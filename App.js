@@ -1,14 +1,20 @@
 import React, {useState} from 'react';
-import { Button, StyleSheet, TouchableHighlight, View } from 'react-native';
+import { Button, StyleSheet, TouchableHighlight, View, TouchableOpacity, Image } from 'react-native';
 import Question from './Question';
 import Home from './Home';
 import JSON from './question.json';
+import { VisibilityContext } from './Context';
+import suivant from './assets/suivantBtn.png';
+import retourBtn from './assets/retourBtn.png';
 
 export default function App (){
   const [questionSecu, setQuestionSecu] = useState("Test question sécu");
   const [answersSecu, setAnswersSecu] = useState("Test");
   const [questionSecours, setQuestionSecours] = useState("Test question secours");
   const [answersSecours, setAnswersSecours] = useState("Test");
+
+  const [elementVisibleSecu, setElementVisibleSecu] = useState(false);
+  const [elementVisibleSecours, setElementVisibleSecours] = useState(false);
 
   const [elementVisible, setElementVisible] = useState(false);
 
@@ -24,24 +30,34 @@ export default function App (){
     setAnswersSecu(question.answersSecu);
     setQuestionSecours(question.questionSecours);
     setAnswersSecours(question.answersSecours);
+
+    setElementVisibleSecu(false);
+    setElementVisibleSecours(false);
   }
 
   return (
     <View style={styles.container}>
       {!elementVisible ? (
-        <TouchableHighlight onPress={() => start()}>
+        <TouchableHighlight onPress={() => start()} style={{flex:1}}>
           <Home/>
         </TouchableHighlight>
       ) : null
       }
-        {
-          elementVisible ? (
-            <View>
-              <Question style={styles.hide} questionSecu={questionSecu} answersSecu={answersSecu} questionSecours={questionSecours} answersSecours={answersSecours}/>
-              <Button style={styles.hide} title="Suivant" onPress={() => suivantBtn()}/>
-            </View>
-          ) : null
-        }
+      {
+        elementVisible ? (
+          <View>
+            <VisibilityContext.Provider value={{ setElementVisibleSecu, setElementVisibleSecours }}>
+              <Question questionSecu={questionSecu} answersSecu={answersSecu} questionSecours={questionSecours} answersSecours={answersSecours} elementVisibleSecu={elementVisibleSecu} elementVisibleSecours={elementVisibleSecours}/>
+            </VisibilityContext.Provider>
+            <TouchableOpacity onPress={suivantBtn}>
+                    <Image source={suivant} style={styles.btn} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => setElementVisible(false)}>
+                    <Image source={retourBtn} style={styles.btn} />
+              </TouchableOpacity>
+          </View>
+        ) : null
+      }
     </View>
   );
 }
@@ -53,11 +69,13 @@ function randomNumber(min, max){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
+    backgroundColor: '#f6f6f6',
     justifyContent: 'center',
   },
-  hide: {
-    display: 'none',
-  },
+  btn: {
+    width: 200,
+    height: 40,
+    margin: 10,
+    alignSelf: 'flex-end',
+  }
 });
